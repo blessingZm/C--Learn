@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace APP1
 {
     partial class Form1
     {
@@ -252,7 +252,6 @@
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "Form1";
             this.Text = "ZM  数据含义及下载错误码详情请查看CIMISS网站说明！";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -261,22 +260,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.CheckedListBox StidSelect;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox DatasSelect;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckedListBox ElementsSelect;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DateTimePicker EnddateTime;
-        private System.Windows.Forms.DateTimePicker StartdateTime;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox ResultsPath;
         private System.Windows.Forms.Button ResultpathSelect;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox ResultsPath;
+        private System.Windows.Forms.CheckedListBox StidSelect;
+        private System.Windows.Forms.ComboBox DatasSelect;
+        private System.Windows.Forms.CheckedListBox ElementsSelect;
+        private System.Windows.Forms.DateTimePicker EnddateTime;
+        private System.Windows.Forms.DateTimePicker StartdateTime;
     }
 }
 

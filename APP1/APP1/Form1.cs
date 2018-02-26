@@ -7,10 +7,12 @@ using System.Text.RegularExpressions;
 using System.Collections;
 using StaElemStatAPI;
 
-namespace WindowsFormsApp1
+namespace APP1
 {
     public partial class Form1 : Form
     {
+        public String interfaceId = "getSurfEleByTimeRangeAndStaID";
+
         public const String CONFIGPATH = @".\Config";
         public Dictionary<string, string> DATATYPES = new Dictionary<string, string>
         {
@@ -18,9 +20,7 @@ namespace WindowsFormsApp1
             { "地面日值资料", "DAY.ini,SURF_CHN_MUL_DAY,yyyy-MM-dd" },
             { "地面月值资料", "MONTH.ini,SURF_CHN_MUL_MON,yyyy-MM" },
             { "地面年值资料", "YEAR.ini,SURF_CHN_MUL_YER,yyyy" }
-            };
-        // 接口ID
-        public const String interfaceId = "getSurfEleByTimeRangeAndStaID";
+            };       
         public Dictionary<string, string> ElemntDict = new Dictionary<string, string>();
         public static String exePath = Environment.CurrentDirectory;
         public static String resultPath = exePath + @"\results";
@@ -29,7 +29,9 @@ namespace WindowsFormsApp1
         {
             // 各控件值初始化
             InitializeComponent();
-            DateTime NOW = System.DateTime.Now;
+            DateTime NOW = DateTime.Now;
+            StartdateTime.Value = NOW;
+            EnddateTime.Value = NOW;
             StartdateTime.MaxDate = NOW;
             EnddateTime.MaxDate = NOW;
 
@@ -79,7 +81,7 @@ namespace WindowsFormsApp1
             EnddateTime.CustomFormat = DATATYPES[DatasSelect.Text].Split(',')[2];
         }
 
-        private String MyChangeDatetime(string mydate)
+        public String MyChangeDatetime(string mydate)
         {
             String result_datetime;
             String buf_datetime;
@@ -150,13 +152,17 @@ namespace WindowsFormsApp1
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
+
+            // 调用进度条展示下载进度
+            PBar pb = new PBar(0, stids.Count);
+            pb.Show(this);
             // 开始调用CIMISS 并下载数据
             SaveAsFile_TEXT cimiss_api = new SaveAsFile_TEXT();
             String resultMessage = "";
             for (int i = 0; i < stids.Count; i++)
             {
                 String stid = stids[i].ToString();
+                pb.Set_pos(i, String.Format("正在下载{0}站数据......", stid));
                 String filename = String.Format("{0}_{1}-{2}_{3}.txt",
                     stid, startDt, endDt, DatasSelect.Text);
                 resultMessage = cimiss_api.GetResults(interfaceId, dataCode, elemStr, 
@@ -168,24 +174,38 @@ namespace WindowsFormsApp1
                     return;
                 }
             }
-            MessageBox.Show(resultMessage, "提示",
+            pb.Close(); //关闭进度条
+            MessageBox.Show("所有资料下载完成", "提示",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            foreach (int i in ElementsSelect.CheckedIndices)
+            {
+                ElementsSelect.SetItemChecked(i, false);
+            }
+
+            foreach (int i in StidSelect.CheckedIndices)
+            {
+                StidSelect.SetItemChecked(i, false);
+            }
         }
 
         // 结果保存路径设置
         private void Button2_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog P_File_Folder = new FolderBrowserDialog();
-            P_File_Folder.SelectedPath = resultPath;
+            FolderBrowserDialog P_File_Folder = new FolderBrowserDialog
+            {
+                SelectedPath = resultPath
+            };
             if (P_File_Folder.ShowDialog() == DialogResult.OK)
             {
                 ResultsPath.Text = P_File_Folder.SelectedPath;
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public String Get_datatype()
         {
-
+            return DatasSelect.Text;
         }
+
     }
 }

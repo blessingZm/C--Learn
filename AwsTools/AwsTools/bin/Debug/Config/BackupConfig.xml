@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Parameters>
+  <OrigiParameters>
+    <Origi File="C:\configtools.log" />
+    <Origi File="G:\surfer绘图" />
+  </OrigiParameters>
+  <TargitParameters>
+    <Targit Dir="H:\测试1" />
+    <Targit Dir="H:\测试2" />
+  </TargitParameters>
+</Parameters>

@@ -1,0 +1,13 @@
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.exe
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.pdb
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Form1.resources
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csproj.GenerateResource.Cache
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csproj.CoreCompileInputs.cache
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.exe
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.pdb
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csprojResolveAssemblyReference.cache
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Archive.ArchiveCofigForm.resources
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.exe.config
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Archive.ArchiveTool.resources
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.PBar.resources
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Backup.BackupTool.resources

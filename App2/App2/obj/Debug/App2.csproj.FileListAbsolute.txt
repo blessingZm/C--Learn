@@ -1,0 +1,10 @@
+G:\C#\objects\App2\App2\bin\Debug\App2.exe
+G:\C#\objects\App2\App2\bin\Debug\App2.pdb
+G:\C#\objects\App2\App2\obj\Debug\App2.csprojResolveAssemblyReference.cache
+G:\C#\objects\App2\App2\obj\Debug\App2.Form1.resources
+G:\C#\objects\App2\App2\obj\Debug\App2.Properties.Resources.resources
+G:\C#\objects\App2\App2\obj\Debug\App2.csproj.GenerateResource.Cache
+G:\C#\objects\App2\App2\obj\Debug\App2.csproj.CoreCompileInputs.cache
+G:\C#\objects\App2\App2\obj\Debug\App2.exe
+G:\C#\objects\App2\App2\obj\Debug\App2.pdb
+G:\C#\objects\APP2\App2\obj\Debug\App2.FRM_Plan.resources

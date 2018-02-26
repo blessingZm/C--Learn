@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Parameters>
+  <BasicParameters>
+    <Basic StationId="57461" AwsPath="D:\ISOS\dataset\湖北\57461\AWS" AwsnetPath="D:\ISOS\bin\Awsnet" DigitPath="M:\in\461\57461站上传报表文件\57461站正式上传文件" />
+  </BasicParameters>
+  <FileParameters>
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+    <Parameter FileState="1" FileType="111" />
+  </FileParameters>
+</Parameters>

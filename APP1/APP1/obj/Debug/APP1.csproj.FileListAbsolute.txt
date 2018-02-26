@@ -22,3 +22,4 @@ G:\C#\objects\APP1\APP1\obj\Debug\APP1.csproj.GenerateResource.Cache
 G:\C#\objects\APP1\APP1\obj\Debug\APP1.csproj.CoreCompileInputs.cache
 G:\C#\objects\APP1\APP1\obj\Debug\cimiss_demo.exe
 G:\C#\objects\APP1\APP1\obj\Debug\cimiss_demo.pdb
+G:\C#\objects\App1\APP1\obj\Debug\APP1.PBar.resources
