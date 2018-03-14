@@ -3,48 +3,116 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Data.SQLite;
+using System.Collections;
 
 namespace Test
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            XmlDocument xmldoc = new XmlDocument();
+            // Create a new hash table.
+            //
+            Hashtable openWith = new Hashtable();
 
-            String xmlFile = @"G:\C#\objects\Test\Test\ArchiveConfig.xml";
-            xmldoc.Load(xmlFile);
+            // Add some elements to the hash table. There are no 
+            // duplicate keys, but some of the values are duplicates.
+            List<String> ss = new List<string>
+            { "notepad.exe", "111.exe"};
+            openWith.Add("txt", ss);
+            openWith.Add("bmp", "paint.exe");
+            openWith.Add("dib", "paint.exe");
+            openWith.Add("rtf", "wordpad.exe");
 
-            XmlNodeList fileNodes = xmldoc.GetElementsByTagName("FileParameters");
-            fileNodes[0].RemoveAll();
-
-           
-            for (int i = 0; i < 10; i++)
+            // The Add method throws an exception if the new key is 
+            // already in the hash table.
+            try
             {
-                XmlElement newnode = xmldoc.CreateElement("Parameter");
-                newnode.SetAttribute("FileState", "1");
-                newnode.SetAttribute("FileType", "111");
-                fileNodes[0].AppendChild(newnode);
-            }        
-            
-            /*
-            XmlNodeList fileConfig = xmldoc.GetElementsByTagName("Parameter");
-            int i = 0;
-            while(i < fileConfig.Count)
+                openWith.Add("txt", "winword.exe");
+            }
+            catch
             {
-                XmlNode xn = fileConfig[i];
-                XmlElement xe = (XmlElement)xn;
-                if (xe.GetAttribute("FileState") == "0")
+                Console.WriteLine("An element with Key = \"txt\" already exists.");
+            }
+
+            // The Item property is the default property, so you 
+            // can omit its name when accessing elements. 
+            Console.WriteLine("For key = \"rtf\", value = {0}.", openWith["rtf"]);
+
+            // The default Item property can be used to change the value
+            // associated with a key.
+            openWith["rtf"] = "winword.exe";
+            Console.WriteLine("For key = \"rtf\", value = {0}.", openWith["rtf"]);
+
+            // If a key does not exist, setting the default Item property
+            // for that key adds a new key/value pair.
+            openWith["doc"] = "winword.exe";
+
+            // ContainsKey can be used to test keys before inserting 
+            // them.
+            if (!openWith.ContainsKey("ht"))
+            {
+                openWith.Add("ht", "hypertrm.exe");
+                Console.WriteLine("Value added for key = \"ht\": {0}", openWith["ht"]);
+            }
+
+            // When you use foreach to enumerate hash table elements,
+            // the elements are retrieved as KeyValuePair objects.
+            Console.WriteLine();
+            foreach (DictionaryEntry de in openWith)
+            {
+                Console.WriteLine("Key = {0}, Value = {1}", de.Key, de.Value);
+            }
+
+            // To get the values alone, use the Values property.
+            ICollection valueColl = openWith.Values;
+
+            // The elements of the ValueCollection are strongly typed
+            // with the type that was specified for hash table values.
+            Console.WriteLine();
+            foreach (var s in valueColl)
+            {
+                if (s is List<String>)
                 {
-                    xmldoc.RemoveChild(xn);
+                    //Console.WriteLine("列表");
+                    Console.WriteLine(s.Length);
                 }
                 else
                 {
-                    i++;
+                    Console.WriteLine("Value = {0}", s);
                 }
+                
             }
-            */
-            xmldoc.Save(@"G:\C#\objects\Test\Test\ArchiveConfig1.xml");
+
+            // To get the keys alone, use the Keys property.
+            ICollection keyColl = openWith.Keys;
+
+            // The elements of the KeyCollection are strongly typed
+            // with the type that was specified for hash table keys.
+            Console.WriteLine();
+            foreach (string s in keyColl)
+            {
+                Console.WriteLine("Key = {0}", s);
+            }
+
+            // Use the Remove method to remove a key/value pair.
+            Console.WriteLine("\nRemove(\"doc\")");
+            openWith.Remove("doc");
+
+            if (!openWith.ContainsKey("doc"))
+            {
+                Console.WriteLine("Key \"doc\" is not found.");
+            }
+            Console.ReadKey();
         }
+
+    }
+
+    public class Element
+    {
+        //public string Symbol { get; set; }
+        public string Name { get; set; }
+        public int AtomicNumber { get; set; }
     }
 }

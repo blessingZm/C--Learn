@@ -1,0 +1,11 @@
+G:\C#\objects\AutoBackup\AutoBackup\bin\Debug\AutoBackup.exe
+G:\C#\objects\AutoBackup\AutoBackup\bin\Debug\AutoBackup.pdb
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.csprojResolveAssemblyReference.cache
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.Form1.resources
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.Properties.Resources.resources
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.csproj.GenerateResource.Cache
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.csproj.CoreCompileInputs.cache
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.exe
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.pdb
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.SetConfig.resources
+G:\C#\objects\AutoBackup\AutoBackup\obj\Debug\AutoBackup.PBar.resources

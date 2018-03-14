@@ -1,5 +1,6 @@
 ﻿using AwsTools.Archive;
 using AwsTools.Backup;
+using AwsTools.MonthClimateAssess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,10 +12,10 @@ using System.Windows.Forms;
 
 namespace AwsTools
 {
-    public partial class Form1 : Form
+    public partial class MonthClimateButton : Form
     {
         public String config_path = @".\config";
-        public Form1()
+        public MonthClimateButton()
         {
             InitializeComponent();
         }
@@ -29,6 +30,12 @@ namespace AwsTools
         {
             BackupTool backup_tool = new BackupTool();
             backup_tool.Show();
+        }
+
+        private void MonthClimateButton_Click(object sender, EventArgs e)
+        {
+            MonthClimate mc_tool = new MonthClimate();
+            mc_tool.Show();
         }
     }
 }

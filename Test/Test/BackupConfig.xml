@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Parameters>
+  <RateParameters>
+    <Rate Time="Hour" />
+  </RateParameters>
   <OrigiParameters>
     <Origi File="D:\ISOS\bin\Config" />
     <Origi File="D:\ISOS\metadata" />

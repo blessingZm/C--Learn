@@ -1,6 +1,5 @@
 G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.exe
 G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.pdb
-G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Form1.resources
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csproj.GenerateResource.Cache
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csproj.CoreCompileInputs.cache
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.exe
@@ -11,3 +10,14 @@ G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.exe.config
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Archive.ArchiveTool.resources
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.PBar.resources
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Backup.BackupTool.resources
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.MonthClimateButton.resources
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.MonthClimateAssess.MonthClimate.resources
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\EntityFramework.dll
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\EntityFramework.SqlServer.dll
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\System.Data.SQLite.dll
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\System.Data.SQLite.EF6.dll
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\System.Data.SQLite.Linq.dll
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\EntityFramework.xml
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\EntityFramework.SqlServer.xml
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\System.Data.SQLite.xml
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\System.Data.SQLite.dll.config

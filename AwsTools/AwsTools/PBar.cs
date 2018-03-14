@@ -11,7 +11,7 @@ namespace AwsTools
 {
     public partial class PBar : Form
     {
-        Form1 f1 = new Form1();
+        MonthClimateButton f1 = new MonthClimateButton();
         public PBar(int _Minimum, int _Maximum)
         {
             InitializeComponent();

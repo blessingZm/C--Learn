@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Parameters>
+  <HistoryDatas>
+    <HistoryData Data="1月,5.0,24.8,69.3" />
+    <HistoryData Data="2月,7.2,39.4,71.3" />
+    <HistoryData Data="3月,11.3,56.1,100.5" />
+    <HistoryData Data="4月,17.4,88.9,127.4" />
+    <HistoryData Data="5月,22.1,125.0,143.3" />
+    <HistoryData Data="6月,25.5,143.0,136.0" />
+    <HistoryData Data="7月,27.7,226.1,159.2" />
+    <HistoryData Data="8月,27.3,194.3,174.4" />
+    <HistoryData Data="9月,23.5,115.6,130.7" />
+    <HistoryData Data="10月,18.1,82.0,116.5" />
+    <HistoryData Data="11月,12.6,47.3,105.0" />
+    <HistoryData Data="12月,7.3,18.6,86.3" />
+  </HistoryDatas>
+  <Dbfile>
+    <Db File="M:\in\461\ISOS数据备份\AWZ.db" />
+  </Dbfile>
+</Parameters>

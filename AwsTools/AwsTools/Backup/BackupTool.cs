@@ -48,7 +48,7 @@ namespace AwsTools.Backup
                 RestoreDirectory = true,
                 CheckPathExists = true,
                 CheckFileExists = true
-        };
+            };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 int index = OrigiFileList.Rows.Add();

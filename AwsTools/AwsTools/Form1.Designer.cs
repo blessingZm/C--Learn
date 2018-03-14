@@ -1,6 +1,6 @@
 ﻿namespace AwsTools
 {
-    partial class Form1
+    partial class MonthClimateButton
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonthClimateButton));
             this.archive_button = new System.Windows.Forms.Button();
             this.backup_button = new System.Windows.Forms.Button();
+            this.MonthCliate_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // archive_button
@@ -55,15 +56,27 @@
             this.backup_button.UseVisualStyleBackColor = true;
             this.backup_button.Click += new System.EventHandler(this.Backup_button_Click);
             // 
-            // Form1
+            // MonthCliate_button
+            // 
+            this.MonthCliate_button.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MonthCliate_button.Location = new System.Drawing.Point(324, 12);
+            this.MonthCliate_button.Name = "MonthCliate_button";
+            this.MonthCliate_button.Size = new System.Drawing.Size(128, 29);
+            this.MonthCliate_button.TabIndex = 2;
+            this.MonthCliate_button.Text = "月气候评价";
+            this.MonthCliate_button.UseVisualStyleBackColor = true;
+            this.MonthCliate_button.Click += new System.EventHandler(this.MonthClimateButton_Click);
+            // 
+            // MonthClimateButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 356);
+            this.Controls.Add(this.MonthCliate_button);
             this.Controls.Add(this.backup_button);
             this.Controls.Add(this.archive_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MonthClimateButton";
             this.Text = "ZM 自动站辅助工具";
             this.ResumeLayout(false);
 
@@ -73,6 +86,7 @@
 
         private System.Windows.Forms.Button archive_button;
         private System.Windows.Forms.Button backup_button;
+        private System.Windows.Forms.Button MonthCliate_button;
     }
 }
 

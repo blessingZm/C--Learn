@@ -141,9 +141,9 @@
             this.label5.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(37, 231);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 19);
+            this.label5.Size = new System.Drawing.Size(562, 19);
             this.label5.TabIndex = 16;
-            this.label5.Text = "归档文件清单：";
+            this.label5.Text = "归档文件清单：(仅文件状态可编辑，1代表有该类文件，0代表无)";
             // 
             // AWSPATHSELECT
             // 
@@ -201,18 +201,21 @@
             // 
             this.file_type.HeaderText = "文件类型";
             this.file_type.Name = "file_type";
+            this.file_type.ReadOnly = true;
             this.file_type.Width = 200;
             // 
             // filename_match_mode
             // 
             this.filename_match_mode.HeaderText = "文件匹配模式";
             this.filename_match_mode.Name = "filename_match_mode";
+            this.filename_match_mode.ReadOnly = true;
             this.filename_match_mode.Width = 200;
             // 
             // file_dir
             // 
             this.file_dir.HeaderText = "文件路径";
             this.file_dir.Name = "file_dir";
+            this.file_dir.ReadOnly = true;
             this.file_dir.Width = 200;
             // 
             // ArchiveCofigForm

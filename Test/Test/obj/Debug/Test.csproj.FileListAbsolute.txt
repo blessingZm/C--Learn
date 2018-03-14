@@ -4,3 +4,15 @@ G:\C#\objects\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 G:\C#\objects\Test\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
 G:\C#\objects\Test\Test\obj\Debug\Test.exe
 G:\C#\objects\Test\Test\obj\Debug\Test.pdb
+G:\C#\objects\Test\Test\bin\Debug\Test.exe.config
+G:\C#\objects\Test\Test\bin\Debug\System.Data.SQLite.dll
+G:\C#\objects\Test\Test\bin\Debug\System.Data.SQLite.dll.config
+G:\C#\objects\Test\Test\bin\Debug\x86\sqlite3.dll
+G:\C#\objects\Test\Test\bin\Debug\x64\sqlite3.dll
+G:\C#\objects\Test\Test\bin\Debug\EntityFramework.dll
+G:\C#\objects\Test\Test\bin\Debug\EntityFramework.SqlServer.dll
+G:\C#\objects\Test\Test\bin\Debug\System.Data.SQLite.EF6.dll
+G:\C#\objects\Test\Test\bin\Debug\System.Data.SQLite.Linq.dll
+G:\C#\objects\Test\Test\bin\Debug\EntityFramework.xml
+G:\C#\objects\Test\Test\bin\Debug\EntityFramework.SqlServer.xml
+G:\C#\objects\Test\Test\bin\Debug\System.Data.SQLite.xml

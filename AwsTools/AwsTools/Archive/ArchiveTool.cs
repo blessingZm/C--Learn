@@ -70,7 +70,7 @@ namespace AwsTools.Archive
                 String year = d.Split('-')[0];
                 String month = d.Split('-')[1];
 
-                String endPath = Path.Combine(digitPath, year + month);
+                String endPath = Path.Combine(digitPath, String.Format("{0}{1}_{2}", year, month, stId));
                 Directory.CreateDirectory(endPath);
 
                 PBar pb = new PBar(0, fileList.Count);
@@ -106,16 +106,15 @@ namespace AwsTools.Archive
                         origiPath = Path.Combine(awsPath, fpath);
                     }
 
-                    if (!Directory.Exists(origiPath))
-                    {
-                        MessageBox.Show(String.Format("不存在文件夹 {0},请检查！", origiPath), "错误", 
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
                     MoveFile mf = new MoveFile();
                     if (state == "")
                     {
+                        if (!Directory.Exists(origiPath))
+                        {
+                            MessageBox.Show(String.Format("不存在文件夹 {0},请检查！", origiPath), "错误",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         foreach (String file in Directory.GetFiles(origiPath))
                         {
                             if (Regex.IsMatch(Path.GetFileName(file), fstring))
