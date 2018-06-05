@@ -88,6 +88,8 @@ namespace APP1
             switch (mydate.Length)
             {
                 case 10:
+                    buf_datetime = mydate;
+                    break;
                 case 8:
                     buf_datetime = mydate;
                     break;
@@ -142,8 +144,8 @@ namespace APP1
             // 取起止时间
             String datetimeForm = StartdateTime.CustomFormat;
             datetimeForm = String.Join("", Regex.Split(datetimeForm, "[- ]"));
-            DateTime SDt = StartdateTime.Value;
-            DateTime EDt = EnddateTime.Value;
+            DateTime SDt = StartdateTime.Value.AddHours(-8);
+            DateTime EDt = EnddateTime.Value.AddHours(-8);
             String startDt = MyChangeDatetime(SDt.ToString(datetimeForm));
             String endDt = MyChangeDatetime(EDt.ToString(datetimeForm));
             if (String.Compare(startDt, endDt) > 0)

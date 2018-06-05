@@ -1,6 +1,7 @@
 ﻿using AwsTools.Archive;
 using AwsTools.Backup;
 using AwsTools.MonthClimateAssess;
+using AwsTools.StCompare;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,12 @@ namespace AwsTools
         {
             MonthClimate mc_tool = new MonthClimate();
             mc_tool.Show();
+        }
+
+        private void WStatic_button_Click(object sender, EventArgs e)
+        {
+            WStatic w_tool = new WStatic();
+            w_tool.Show();
         }
     }
 }

@@ -1,0 +1,9 @@
+E:\project\WorkSolution\ForcasetTXTShow\bin\Debug\ForcasetTXTShow.exe
+E:\project\WorkSolution\ForcasetTXTShow\bin\Debug\ForcasetTXTShow.pdb
+E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csprojResolveAssemblyReference.cache
+E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.Form1.resources
+E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.Properties.Resources.resources
+E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csproj.GenerateResource.Cache
+E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csproj.CoreCompileInputs.cache
+E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.exe
+E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.pdb

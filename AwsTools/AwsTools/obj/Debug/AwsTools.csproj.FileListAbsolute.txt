@@ -4,7 +4,6 @@ G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csproj.GenerateResource.Cache
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csproj.CoreCompileInputs.cache
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.exe
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.pdb
-G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csprojResolveAssemblyReference.cache
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Archive.ArchiveCofigForm.resources
 G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.exe.config
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Archive.ArchiveTool.resources
@@ -21,3 +20,8 @@ G:\C#\objects\AwsTools\AwsTools\bin\Debug\EntityFramework.xml
 G:\C#\objects\AwsTools\AwsTools\bin\Debug\EntityFramework.SqlServer.xml
 G:\C#\objects\AwsTools\AwsTools\bin\Debug\System.Data.SQLite.xml
 G:\C#\objects\AwsTools\AwsTools\bin\Debug\System.Data.SQLite.dll.config
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\Aspose.Cells.dll
+G:\C#\objects\AwsTools\AwsTools\bin\Debug\Aspose.Cells.xml
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csprojAssemblyReference.cache
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.StCompare.WStatic.resources
+G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.csproj.CopyComplete

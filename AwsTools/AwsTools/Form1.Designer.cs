@@ -32,6 +32,7 @@
             this.archive_button = new System.Windows.Forms.Button();
             this.backup_button = new System.Windows.Forms.Button();
             this.MonthCliate_button = new System.Windows.Forms.Button();
+            this.WStatic_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // archive_button
@@ -59,7 +60,7 @@
             // MonthCliate_button
             // 
             this.MonthCliate_button.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MonthCliate_button.Location = new System.Drawing.Point(324, 12);
+            this.MonthCliate_button.Location = new System.Drawing.Point(320, 12);
             this.MonthCliate_button.Name = "MonthCliate_button";
             this.MonthCliate_button.Size = new System.Drawing.Size(128, 29);
             this.MonthCliate_button.TabIndex = 2;
@@ -67,17 +68,29 @@
             this.MonthCliate_button.UseVisualStyleBackColor = true;
             this.MonthCliate_button.Click += new System.EventHandler(this.MonthClimateButton_Click);
             // 
+            // WStatic_button
+            // 
+            this.WStatic_button.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.WStatic_button.Location = new System.Drawing.Point(479, 12);
+            this.WStatic_button.Name = "WStatic_button";
+            this.WStatic_button.Size = new System.Drawing.Size(188, 29);
+            this.WStatic_button.TabIndex = 3;
+            this.WStatic_button.Text = "对比观测-风的统计";
+            this.WStatic_button.UseVisualStyleBackColor = true;
+            this.WStatic_button.Click += new System.EventHandler(this.WStatic_button_Click);
+            // 
             // MonthClimateButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 356);
+            this.ClientSize = new System.Drawing.Size(688, 356);
+            this.Controls.Add(this.WStatic_button);
             this.Controls.Add(this.MonthCliate_button);
             this.Controls.Add(this.backup_button);
             this.Controls.Add(this.archive_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MonthClimateButton";
-            this.Text = "ZM 自动站辅助工具";
+            this.Text = "ZM 自动站辅助工具 2018-06";
             this.ResumeLayout(false);
 
         }
@@ -87,6 +100,7 @@
         private System.Windows.Forms.Button archive_button;
         private System.Windows.Forms.Button backup_button;
         private System.Windows.Forms.Button MonthCliate_button;
+        private System.Windows.Forms.Button WStatic_button;
     }
 }
 

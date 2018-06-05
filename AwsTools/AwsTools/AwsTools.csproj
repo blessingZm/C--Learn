@@ -36,6 +36,9 @@
     <ApplicationIcon>ooopic.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=18.5.1.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.18.5.1\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
@@ -103,6 +106,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StCompare\BaseDatas.cs" />
+    <Compile Include="StCompare\DateList.cs" />
+    <Compile Include="StCompare\GetWdatas.cs" />
+    <Compile Include="StCompare\StaticResult.cs" />
+    <Compile Include="StCompare\WStatic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StCompare\WStatic.Designer.cs">
+      <DependentUpon>WStatic.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Archive\ArchiveTool.resx">
       <DependentUpon>ArchiveTool.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,12 +134,16 @@
     <EmbeddedResource Include="PBar.resx">
       <DependentUpon>PBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StCompare\WStatic.resx">
+      <DependentUpon>WStatic.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ooopic.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net40\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
