@@ -141,23 +141,18 @@ namespace AwsTools.Backup
                 XmlNodeList origiConfig = xmldoc.GetElementsByTagName("Origi");
                 XmlNodeList targitConfig = xmldoc.GetElementsByTagName("Targit");
 
-                PBar pb = new PBar(0, origiConfig.Count * targitConfig.Count);
-                pb.Show(this);
-                int pbnum = 0;
                 for (int i = 0; i < targitConfig.Count; i++)
                 {
                     for (int j = 0; j < origiConfig.Count; j++)
                     {
                         String oriFile = origiConfig[j].Attributes[0].Value;
                         String tarDir = targitConfig[i].Attributes[0].Value;
-                        pb.Set_pos(pbnum, String.Format("备份:{0} ----至:{1}...", oriFile, tarDir));
+                        Log_text.AppendText($"正在备份:\r\n{oriFile} ----至:{tarDir}\r\n");
                         mf.Move_File(oriFile, tarDir);
-                        pbnum++;
+                        Log_text.AppendText("备份完成\r\n\r\n");
                     }
                 }
-                pb.Close();
-                MessageBox.Show("备份完成！", "提示",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+               Log_text.AppendText("\r\n全部备份完成！\r\n");
             } 
         }
     }

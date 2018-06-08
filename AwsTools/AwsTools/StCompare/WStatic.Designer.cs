@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.StartDate = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.EndDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.EndDate = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.StartDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.StId_text = new System.Windows.Forms.TextBox();
             this.CheckFile_button = new System.Windows.Forms.Button();
             this.StaticStart_button = new System.Windows.Forms.Button();
             this.Log_text = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Wind2_radiobutton = new System.Windows.Forms.RadioButton();
             this.Wind10_radiobutton = new System.Windows.Forms.RadioButton();
+            this.Wind2_radiobutton = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -64,41 +64,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "统计时间";
             // 
-            // label2
+            // label4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(16, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 20);
-            this.label2.TabIndex = 0;
-            // 
-            // StartDate
-            // 
-            this.StartDate.CustomFormat = "yyyy-MM";
-            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StartDate.Location = new System.Drawing.Point(68, 19);
-            this.StartDate.Name = "StartDate";
-            this.StartDate.Size = new System.Drawing.Size(79, 26);
-            this.StartDate.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "开始：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(172, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 20);
-            this.label3.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(192, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 16);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "截止：";
             // 
             // EndDate
             // 
@@ -109,14 +82,41 @@
             this.EndDate.Size = new System.Drawing.Size(140, 26);
             this.EndDate.TabIndex = 4;
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(192, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "截止：";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(172, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "开始：";
+            // 
+            // StartDate
+            // 
+            this.StartDate.CustomFormat = "yyyy-MM";
+            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.StartDate.Location = new System.Drawing.Point(68, 19);
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Size = new System.Drawing.Size(79, 26);
+            this.StartDate.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(16, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 20);
+            this.label2.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -179,6 +179,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "选择统计的风类";
             // 
+            // Wind10_radiobutton
+            // 
+            this.Wind10_radiobutton.AutoSize = true;
+            this.Wind10_radiobutton.Location = new System.Drawing.Point(176, 29);
+            this.Wind10_radiobutton.Name = "Wind10_radiobutton";
+            this.Wind10_radiobutton.Size = new System.Drawing.Size(90, 20);
+            this.Wind10_radiobutton.TabIndex = 1;
+            this.Wind10_radiobutton.Text = "10分钟风";
+            this.Wind10_radiobutton.UseVisualStyleBackColor = true;
+            // 
             // Wind2_radiobutton
             // 
             this.Wind2_radiobutton.AutoSize = true;
@@ -190,16 +200,6 @@
             this.Wind2_radiobutton.TabStop = true;
             this.Wind2_radiobutton.Text = "2分钟风";
             this.Wind2_radiobutton.UseVisualStyleBackColor = true;
-            // 
-            // Wind10_radiobutton
-            // 
-            this.Wind10_radiobutton.AutoSize = true;
-            this.Wind10_radiobutton.Location = new System.Drawing.Point(176, 29);
-            this.Wind10_radiobutton.Name = "Wind10_radiobutton";
-            this.Wind10_radiobutton.Size = new System.Drawing.Size(90, 20);
-            this.Wind10_radiobutton.TabIndex = 1;
-            this.Wind10_radiobutton.Text = "10分钟风";
-            this.Wind10_radiobutton.UseVisualStyleBackColor = true;
             // 
             // WStatic
             // 
@@ -213,7 +213,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "WStatic";
-            this.Text = "WStatic";
+            this.Text = "台站对比观测--用于统计风向相符率、风向频率";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

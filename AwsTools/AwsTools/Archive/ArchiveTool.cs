@@ -26,6 +26,7 @@ namespace AwsTools.Archive
 
         private void StartArchive_Click(object sender, EventArgs e)
         {
+            Log_text.Clear();
             String dtForm = StartDate.CustomFormat;
             String startDate = StartDate.Value.ToString(dtForm);
             String endDate = EndDate.Value.ToString(dtForm);
@@ -73,14 +74,10 @@ namespace AwsTools.Archive
                 String endPath = Path.Combine(digitPath, String.Format("{0}{1}_{2}", year, month, stId));
                 Directory.CreateDirectory(endPath);
 
-                PBar pb = new PBar(0, fileList.Count);
-                pb.Show(this);
-
-                int i = 0;
                 foreach (ArrayList flist in fileList)
                 {
-                    pb.Set_pos(i, String.Format("正在归档{0}年{1}月数据...  归档：{2}", 
-                        year, month, flist[1].ToString()));
+                    Log_text.AppendText($"开始归档{year}年{month}月数据......\r\n" +
+                        $"正在归档：{flist[1].ToString()}.....\r\n");
                     String state = flist[0].ToString();
                     if (state == "1")
                     {
@@ -123,12 +120,9 @@ namespace AwsTools.Archive
                             }
                         }
                     }
-                    i++;
                 }
-                pb.Close();
             }
-            MessageBox.Show("归档完成！", "提示",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Log_text.AppendText("\r\n归档完成！\r\n");
         }
 
 

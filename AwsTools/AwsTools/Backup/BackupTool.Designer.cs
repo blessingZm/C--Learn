@@ -39,6 +39,7 @@
             this.StartBackup = new System.Windows.Forms.Button();
             this.BackupConfigSave = new System.Windows.Forms.Button();
             this.OrigiDirSelect = new System.Windows.Forms.Button();
+            this.Log_text = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.OrigiFileList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TargitDirList)).BeginInit();
             this.SuspendLayout();
@@ -120,18 +121,18 @@
             // StartBackup
             // 
             this.StartBackup.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.StartBackup.Location = new System.Drawing.Point(310, 419);
+            this.StartBackup.Location = new System.Drawing.Point(610, 23);
             this.StartBackup.Name = "StartBackup";
-            this.StartBackup.Size = new System.Drawing.Size(99, 44);
+            this.StartBackup.Size = new System.Drawing.Size(122, 44);
             this.StartBackup.TabIndex = 6;
-            this.StartBackup.Text = "备份";
+            this.StartBackup.Text = "开始备份";
             this.StartBackup.UseVisualStyleBackColor = true;
             this.StartBackup.Click += new System.EventHandler(this.StartBackup_Click);
             // 
             // BackupConfigSave
             // 
             this.BackupConfigSave.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BackupConfigSave.Location = new System.Drawing.Point(16, 419);
+            this.BackupConfigSave.Location = new System.Drawing.Point(415, 23);
             this.BackupConfigSave.Name = "BackupConfigSave";
             this.BackupConfigSave.Size = new System.Drawing.Size(116, 44);
             this.BackupConfigSave.TabIndex = 7;
@@ -149,11 +150,20 @@
             this.OrigiDirSelect.UseVisualStyleBackColor = true;
             this.OrigiDirSelect.Click += new System.EventHandler(this.OrigiDirSelect_Click);
             // 
+            // Log_text
+            // 
+            this.Log_text.Location = new System.Drawing.Point(415, 73);
+            this.Log_text.Multiline = true;
+            this.Log_text.Name = "Log_text";
+            this.Log_text.Size = new System.Drawing.Size(317, 320);
+            this.Log_text.TabIndex = 9;
+            // 
             // BackupTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 486);
+            this.ClientSize = new System.Drawing.Size(744, 413);
+            this.Controls.Add(this.Log_text);
             this.Controls.Add(this.OrigiDirSelect);
             this.Controls.Add(this.BackupConfigSave);
             this.Controls.Add(this.StartBackup);
@@ -188,5 +198,6 @@
         private System.Windows.Forms.Button BackupConfigSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn targit_dir;
         private System.Windows.Forms.Button OrigiDirSelect;
+        private System.Windows.Forms.TextBox Log_text;
     }
 }

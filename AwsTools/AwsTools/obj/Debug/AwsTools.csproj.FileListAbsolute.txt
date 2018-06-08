@@ -7,7 +7,6 @@ G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.pdb
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Archive.ArchiveCofigForm.resources
 G:\C#\objects\AwsTools\AwsTools\bin\Debug\AwsTools.exe.config
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Archive.ArchiveTool.resources
-G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.PBar.resources
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.Backup.BackupTool.resources
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.MonthClimateButton.resources
 G:\C#\objects\AwsTools\AwsTools\obj\Debug\AwsTools.MonthClimateAssess.MonthClimate.resources
