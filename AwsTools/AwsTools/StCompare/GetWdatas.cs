@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -75,20 +76,18 @@ namespace StationCompara
                         day_start = 0;
                         day += 1;
                     }
-                    bool no_except = true;
-                    try
-                    {
-                        ws = Convert.ToInt32(b.Substring(3, 3)) / 10.0;
-                    }
-                    catch
+                    //通过不同的if 解析风向风速
+                    string buf_wd = b.Substring(0, 3);
+                    string buf_ws = b.Substring(3, 3);
+                    if (buf_ws == "///")
                     {
                         wd = 999999;
                         ws = 999999.0;
                         wd_direct = "-";
-                        no_except = false;
                     }
-                    if (no_except)
+                    else
                     {
+                        ws = Convert.ToInt32(buf_ws) / 10.0;
                         if (ws < 0.3)
                         {
                             wd = 999999;
@@ -96,23 +95,61 @@ namespace StationCompara
                         }
                         else
                         {
-                            // 解析风向
-                            try
+                            if (buf_wd == "///")
                             {
-                                wd = Convert.ToInt32(b.Substring(0, 3));
+                                wd = 999999;
+                                wd_direct = "-";
+                            }
+                            else
+                            {
+                                wd = Convert.ToInt32(buf_wd);
                                 int wd_loc = Convert.ToInt32(Math.Floor((wd + 11.25) / 22.5));
                                 if (wd_loc > 15)
                                     wd_direct = "N";
                                 else
                                     wd_direct = wind_directs[wd_loc];
                             }
-                            catch
-                            {
-                                wd = 999999;
-                                wd_direct = "-";
-                            }                           
                         }
                     }
+                    //通过异常来解析风向风速
+                    //bool no_except = true;
+                    //try
+                    //{
+                    //    ws = Convert.ToInt32(b.Substring(3, 3)) / 10.0;
+                    //}
+                    //catch
+                    //{
+                    //    wd = 999999;
+                    //    ws = 999999.0;
+                    //    wd_direct = "-";
+                    //    no_except = false;
+                    //}
+                    //if (no_except)
+                    //{
+                    //    if (ws < 0.3)
+                    //    {
+                    //        wd = 999999;
+                    //        wd_direct = "C";
+                    //    }
+                    //    else
+                    //    {
+                    //        // 解析风向
+                    //        try
+                    //        {
+                    //            wd = Convert.ToInt32(b.Substring(0, 3));
+                    //            int wd_loc = Convert.ToInt32(Math.Floor((wd + 11.25) / 22.5));
+                    //            if (wd_loc > 15)
+                    //                wd_direct = "N";
+                    //            else
+                    //                wd_direct = wind_directs[wd_loc];
+                    //        }
+                    //        catch
+                    //        {
+                    //            wd = 999999;
+                    //            wd_direct = "-";
+                    //        }                           
+                    //    }
+                    //}
                     buf = new ArrayList(){ date_time, wd, wd_direct, ws};
                     result.Add(buf);              
                 }

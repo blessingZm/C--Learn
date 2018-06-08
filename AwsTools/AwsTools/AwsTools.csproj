@@ -109,6 +109,7 @@
     <Compile Include="StCompare\BaseDatas.cs" />
     <Compile Include="StCompare\DateList.cs" />
     <Compile Include="StCompare\GetWdatas.cs" />
+    <Compile Include="StCompare\SqliteClass.cs" />
     <Compile Include="StCompare\StaticResult.cs" />
     <Compile Include="StCompare\WStatic.cs">
       <SubType>Form</SubType>

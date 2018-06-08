@@ -1,84 +1,83 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 
 namespace StationCompara
 {
-    // 根据某个月的风数据统计风向相符率、风向频率、风向频率差
     class StaticResult
     {
-        private readonly List<ArrayList> new_datas;
-        private readonly List<ArrayList> old_datas;
-        private readonly BaseDatas bd = new BaseDatas();
+        public SQLiteConnection db;
+        private BaseDatas bd = new BaseDatas();
 
-        public StaticResult(List<ArrayList> newdatas, List<ArrayList> olddatas)
+        public StaticResult(string dbpath, string dbname)
         {
-            new_datas = newdatas;
-            old_datas = olddatas;
+            string my_db = Path.Combine(dbpath, dbname);
+            if (!File.Exists(my_db))
+                SQLiteConnection.CreateFile(my_db);
+            db = new SQLiteConnection($"Data Source={my_db}; Version=3");
+            db.Open();
         }
 
-        //风向相符率
-        public double WdConincideceRate()
+        public List<List<string>> WdConincideceRate(string table_name)
         {
-            int all_num = 0;
-            int conincidece_num = 0;
-            for (int i = 0; i < new_datas.Count; i++)
-            {
-                ArrayList new_buf = new_datas[i];
-                ArrayList old_buf = old_datas[i];
+            List<List<string>> results = new List<List<string>>();
 
-                if (Convert.ToInt32(new_buf[1]) > 360 || Convert.ToInt32(old_buf[1]) > 360)
-                    continue;
-                if (Math.Abs(Convert.ToInt32(new_buf[1]) - Convert.ToInt32(old_buf[1])) < 23)
-                    conincidece_num += 1;
-                all_num += 1;
-            }
-            double result = Convert.ToDouble(conincidece_num) / Convert.ToDouble(all_num) * 100;
-            result = Math.Round(result, 1);
-            return result;
-        }
-
-        //风向频率
-        public Dictionary<string, double> WdFrequency(List<ArrayList> datas)
-        {
-            Dictionary<string, double> result = new Dictionary<string, double>();
-            foreach(string direct in bd.WdDirects)
+            string sql = $"SELECT strftime('%Y', datetime(meter_time)) as year, " +
+                $"strftime('%m', datetime(meter_time)) as month, " +
+                $"(count(case when (abs(wd_dif) < 22.5 or abs(wd_dif) > 337.5) then 1 end) / " +
+                $"cast (count(wd_dif) as double)) * 100 as coin_rate " +
+                $"FROM {table_name} WHERE new_wd <= 360 and old_wd <= 360 " +
+                $"group by year,month";
+            SQLiteCommand command = new SQLiteCommand(sql, db);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                result[$"{direct}"] = 0.0;
-            }
-            foreach(ArrayList data in datas)
-            {
-                string direct = data[2].ToString();
-                if (bd.WdDirects.Contains(direct))
+                List<string> buf = new List<string>
                 {
-                    result[$"{direct}"] += 1.0;
-                }
+                    reader["year"].ToString(),
+                    reader["month"].ToString(),
+                    Math.Round(Convert.ToDouble(reader["coin_rate"]), 1).ToString()
+                };
+                results.Add(buf);   
             }
-            // 所有风向出现的总回数
-            double all_nums = 0.0;
-            foreach (double value in result.Values)
-                all_nums += value;
-            // 各风向出现的频率
-            foreach (string direct in bd.WdDirects)
-            {
-                double buf = result[$"{direct}"] / all_nums * 100;
-                result[$"{direct}"] = Math.Round(buf, MidpointRounding.AwayFromZero);
-            }               
-            return result;
+            return results;
         }
 
-        //风向频率差
-        public Dictionary<string, double> WdFrequencyDif()
+        public List<List<string>> WdFrequency(string table_name, string col_name, string direct)
         {
-            Dictionary<string, double> new_fre = WdFrequency(new_datas);
-            Dictionary<string, double> old_fre = WdFrequency(old_datas);
-            Dictionary<string, double> result = new Dictionary<string, double>();
-            foreach (string direct in bd.WdDirects)
+            List<List<string>> results = new List<List<string>>();
+
+            string sql = $"SELECT strftime('%Y', datetime(meter_time)) as year, " +
+                $"strftime('%m', datetime(meter_time)) as month, " +
+                $"(count(case when {col_name} == '{direct}' then 1 end) / " +
+                $"cast (count({col_name}) as double)) * 100 as fre " +
+                $"FROM {table_name} WHERE {col_name} != '-'" +
+                $"group by year,month";
+
+            SQLiteCommand command = new SQLiteCommand(sql, db);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                result[$"{direct}"] = new_fre[$"{direct}"] - old_fre[$"{direct}"];
+                List<string> buf = new List<string>
+                {
+                    reader["year"].ToString(),
+                    reader["month"].ToString(),
+                    Math.Round(Convert.ToDouble(reader["fre"]), 
+                    MidpointRounding.AwayFromZero).ToString()
+                };
+                results.Add(buf);
             }
-            return result;
+            return results;
+        }
+
+        public void CloseDb()
+        {
+            db.Close();
+            //db.Dispose();
+            //GC.WaitForPendingFinalizers();
         }
     }
 }
