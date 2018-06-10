@@ -11,13 +11,10 @@ namespace TEST
     {
         static void Main(string[] args)
         {
-            Workbook wb = new Workbook();
-            wb.Worksheets.Clear();
-            Console.WriteLine(wb.Worksheets.Count);
-            Worksheet ws_one = wb.Worksheets.Add("one");
-            ws_one.Cells[0, 0].Value = "ceshi";
-            Console.WriteLine(wb.Worksheets.Count);
-            wb.Save("11.xlsx");
+            Animal[] animalArray = new Animal[2];
+            Cow myCow1 = new Cow("Lea");
+            animalArray[0] = myCow1;
+            animalArray[1] = new Chicken("Noa");
 
             Console.ReadKey();
         }

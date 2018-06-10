@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Aspose.Cells;
 using StationCompara;
 
 namespace AwsTools.StCompare
@@ -144,10 +138,12 @@ namespace AwsTools.StCompare
 
             //开始统计.....
             Log_text.AppendText("开始统计......\r\n");
+            if (File.Exists(Path.Combine(db_path, db_name)))
+                File.Delete(Path.Combine(db_path, db_name));
             // 将原始数据提取存入临时数据库"w_datas.db"
             Log_text.AppendText($"将数据提取写入临时数据库{db_name} ........\r\n");
 
-            SqliteClass new_sq = new SqliteClass(db_path, db_name);
+            SqliteClass sq = new SqliteClass(db_path, db_name);
             List<string> columns = new List<string>
             {
                 "meter_time", "new_wd", "new_wd_direct", "new_ws",
@@ -158,8 +154,8 @@ namespace AwsTools.StCompare
                 "char(20) PRIMARY KEY NOT NULL", "char(10)", "char(10)", "char(10)",
                 "char(10)", "char(10)", "char(10)", "char(10)"
             };
-            new_sq.CreateTable(table_name, columns, col_datasets);
-            new_sq.StartTrans();
+            sq.CreateTable(table_name, columns, col_datasets);
+            sq.StartTrans();
 
             for (int i = 0; i < drange.Count; i++)
             {
@@ -182,96 +178,28 @@ namespace AwsTools.StCompare
                         result.Add(old_datas[j][k]);
                     result.Add(Convert.ToInt32(new_datas[j][1]) -
                         Convert.ToInt32(old_datas[j][1]));
-                    new_sq.InsertDatas(table_name, columns, result);
+                    sq.InsertDatas(table_name, columns, result);
                 }
                 
                 Log_text.AppendText($"{year}年{month}月 写入完成......\r\n");
             }
-            new_sq.CommitTrans();
-            new_sq.CloseDb();
+            sq.CommitTrans();
+            sq.CloseDb();
 
+            // 原始数据写入结束
             Log_text.AppendText($"原始数据写入数据库{db_name}完成\r\n");
-
-            Log_text.AppendText($"开始统计并数据结果至：{result_file}\r\n");
-
-            // 创建统计结果的excel文件，并写入表头
-            Workbook wb = new Workbook();
-            wb.Worksheets.Clear();
-            Worksheet ws_conincidence = wb.Worksheets.Add("风向相符率");
-            Worksheet ws_fre_new = wb.Worksheets.Add("新址风向频率");
-            Worksheet ws_fre_old = wb.Worksheets.Add("旧址风向频率");
-            Worksheet ws_fre_dif = wb.Worksheets.Add("风向频率差");
-
-            //相符率 表头， 从第二列开始
-            for (int i = 1; i <= bd.Months.Length; i++)
-            {
-                ws_conincidence.Cells[0, i].Value = bd.Months[i - 1];
-            }
-            //频率表头, 从第三列开始
-            for (int i = 2; i <= bd.WdDirects.Length + 1; i++)
-            {
-                ws_fre_new.Cells[0, i].Value = bd.WdDirects[i - 2];
-                ws_fre_old.Cells[0, i].Value = bd.WdDirects[i - 2];
-                ws_fre_dif.Cells[0, i].Value = bd.WdDirects[i - 2];
-            }
-
-            StaticResult sr = new StaticResult(db_path, db_name);
-
-            string start_year = "";
-            int year_row = 0;
-
-            Log_text.AppendText("开始输出风向相符率......\r\n");
-            // 写相符率
-            List<List<string>> rates = sr.WdConincideceRate(table_name);
-            foreach (List<string> data in rates)
-            {
-                string year = data[0];
-                string month = data[1];
-                string rate = data[2];
-                if (year != start_year)
-                {
-                    start_year = year;
-                    year_row += 1;
-                    ws_conincidence.Cells[year_row, 0].Value = start_year;
-                }
-                int month_col = Array.IndexOf(bd.Months, month) + 1;
-                ws_conincidence.Cells[year_row, month_col].Value = rate;
-            }
+            Log_text.AppendText($"开始统计并将结果输出至：{result_file}\r\n");
+            StaticResult sr = new StaticResult(db_path, db_name, table_name);
+            Log_text.AppendText("开始统计风向相符率......\r\n");
+            sr.WriteConincidence();
             Log_text.AppendText("风向相符率 统计完成.....\r\n");
 
             // 写风向频率
-            Log_text.AppendText("开始输出风向频率......\r\n");
-            string[] directs = bd.WdDirects;
-            for (int i = 0; i < directs.Count(); i++)
-            {
-                List<List<string>> new_fres = sr.WdFrequency(table_name, "new_wd_direct", directs[i]);
-                List<List<string>> old_fres = sr.WdFrequency(table_name, "old_wd_direct", directs[i]);
-                for (int j = 0; j < new_fres.Count; j++)
-                {
-                    if (i == 0)
-                    {
-                        ws_fre_new.Cells[j + 1, 0].Value = new_fres[j][0];
-                        ws_fre_new.Cells[j + 1, 1].Value = new_fres[j][1];
-
-                        ws_fre_old.Cells[j + 1, 0].Value = old_fres[j][0];
-                        ws_fre_old.Cells[j + 1, 1].Value = old_fres[j][1];
-
-                        ws_fre_dif.Cells[j + 1, 0].Value = new_fres[j][0];
-                        ws_fre_dif.Cells[j + 1, 1].Value = new_fres[j][1];
-                    }
-                    int new_fre = Convert.ToInt32(new_fres[j][2]);
-                    int old_fre = Convert.ToInt32(old_fres[j][2]);
-                    int col_num = i + 2;
-
-                    ws_fre_new.Cells[j + 1, col_num].Value = new_fre;                    
-                    ws_fre_old.Cells[j + 1, col_num].Value = old_fre;
-                    ws_fre_dif.Cells[j + 1, col_num].Value = new_fre - old_fre;
-                }
-            }
+            Log_text.AppendText("开始统计风向频率......\r\n");
+            sr.WriteFrequence();
             Log_text.AppendText("风向频率 统计完成......\r\n");
-            sr.CloseDb();
-
-            wb.Save($"{wd_num}分钟风统计结果.xlsx");
+            
+            sr.SaveResult($"{wd_num}分钟风统计结果.xlsx");
             Log_text.AppendText($"结果写入 {result_file} 完成!\r\n");
 
             if (MessageBox.Show("是否删除临时数据库文件？", "删除前确认", 

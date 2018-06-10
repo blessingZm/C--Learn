@@ -115,12 +115,18 @@ namespace StationCompara
             } 
         }
 
+        // 选择数据
+        public SQLiteDataReader SelectDatas(string sql)
+        {
+            SQLiteCommand command = new SQLiteCommand(sql, db);
+            SQLiteDataReader reader = command.ExecuteReader();
+            return reader;
+        }
+
         //断开连接
         public void CloseDb()
         {
             db.Close();
-            //db.Dispose();
-            //GC.WaitForPendingFinalizers();
         }
     }
 }

@@ -7,3 +7,13 @@ E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csproj.Generat
 E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csproj.CoreCompileInputs.cache
 E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.exe
 E:\project\WorkSolution\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.pdb
+G:\C#\objects\ForcasetTXTShow\bin\Debug\ForcasetTXTShow.exe.config
+G:\C#\objects\ForcasetTXTShow\bin\Debug\ForcasetTXTShow.exe
+G:\C#\objects\ForcasetTXTShow\bin\Debug\ForcasetTXTShow.pdb
+G:\C#\objects\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csprojAssemblyReference.cache
+G:\C#\objects\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.Form1.resources
+G:\C#\objects\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.Properties.Resources.resources
+G:\C#\objects\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csproj.GenerateResource.cache
+G:\C#\objects\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.csproj.CoreCompileInputs.cache
+G:\C#\objects\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.exe
+G:\C#\objects\ForcasetTXTShow\obj\Debug\ForcasetTXTShow.pdb
